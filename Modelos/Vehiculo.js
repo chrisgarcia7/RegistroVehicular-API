@@ -2,29 +2,29 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../db/connection");
 
 const Vehiculo = sequelize.define(
-  "Vehiculos",
+  "vehiculo",
   {
-    Id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    Marca: {
+    marca: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Modelo: {
+    modelo: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Placa: {
+    placa: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
   },
   {
-    tableName: "Vehiculos",
+    tableName: "vehiculo",
     timestamps: false,
   },
 );
