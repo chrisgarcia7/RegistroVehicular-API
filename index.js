@@ -62,5 +62,5 @@ app.delete("/vehiculo/:idvehiculo", async (req, res) => {
 });
 
 app.listen(5001, () => {
-  console.log("aplcacion ejecutando en puerto 5000");
+  console.log("aplcacion ejecutando en puerto 5001");
 });
