@@ -3,6 +3,7 @@ const { where } = require("sequelize");
 
 var cors = require("cors");
 const Vehiculo = require("./Modelos/Vehiculo");
+const Entrada = require("./Modelos/Entrada");
 
 const app = express();
 
@@ -58,6 +59,27 @@ app.delete("/vehiculo/:idvehiculo", async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: "Error al eliminar vehiculo" + error });
+  }
+});
+
+app.get("/entrada", async (req, res) => {
+  try {
+    const entrada = await Entrada.findAll();
+
+    res.status(200).json(entrada);
+  } catch (error) {
+    res.status(500).json({ error: "Ocurrio un error" });
+  }
+});
+
+app.post("/entrada", async (req, res) => {
+  try {
+    console.log(req.body);
+    const entrada = await Entrada.create(req.body);
+
+    res.status(200).json({ mensaje: "entrada registrada correctamente" });
+  } catch (error) {
+    res.status(500).json({ error: "Ocurrio un error" + error });
   }
 });
 
