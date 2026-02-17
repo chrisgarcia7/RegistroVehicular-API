@@ -12,7 +12,10 @@ const Entrada = sequelize.define(
     vehiculo_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
+    },
+    placa_vehiculo: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     motorista: {
       type: DataTypes.STRING,
