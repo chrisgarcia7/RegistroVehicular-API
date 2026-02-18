@@ -1,13 +1,21 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db/connection");
 
-const Entrada = sequelize.define(
-  "entrada",
+const Salida = sequelize.define(
+  "salida",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+    },
+    fecha_salida: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    hora_salida: {
+      type: DataTypes.TIME,
+      allowNull: false,
     },
     vehiculo_id: {
       type: DataTypes.INTEGER,
@@ -21,27 +29,11 @@ const Entrada = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    fecha_entrada: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    hora_entrada: {
-      type: DataTypes.TIME,
-      allowNull: false,
-    },
-    kilometraje: {
-      type: DataTypes.NUMBER,
-      allowNull: false,
-    },
-    isAdentro: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
   },
   {
-    tableName: "entrada",
+    tableName: "salida",
     timestamps: false,
   },
 );
 
-module.exports = Entrada;
+module.exports = Salida;
